@@ -1,0 +1,21 @@
+name: Notify Reviewers
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  notify-reviewers:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Out Code
+      uses: actions/checkout@v2
+
+    - name: Notify Reviewers
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        reviewers="$(gh pr review-request create ${{ github.event.pull_request.number }} --reviewer @reviewer1 @reviewer2)"
+        echo "Reviewers requested: $reviewers"
