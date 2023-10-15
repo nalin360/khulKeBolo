@@ -1,0 +1,25 @@
+name: Auto Assign Reviewers
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  auto-assign-reviewer:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Auto Assign Reviewer
+      uses: actions/github-script@v5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const reviewers = ["username1", "username2"]; // Add the usernames of the reviewers you want to assign
+          const response = await github.pulls.createReviewRequest({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.payload.pull_request.number,
+            reviewers: reviewers
+          });
+          console.log(response);
