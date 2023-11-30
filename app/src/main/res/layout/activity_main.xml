@@ -3,45 +3,162 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/khulkebolo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Khul Ke Bolo"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="29dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        tools:context=".MainActivity">
+
+        <ImageButton
+            android:id="@+id/play"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+
+            android:clickable="true"
+            android:contentDescription="TODO"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/search_bar"
+            app:layout_constraintEnd_toStartOf="@+id/pause"
+            app:layout_constraintStart_toEndOf="@+id/stop"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/round_play_arrow_24" />
+
+        <ImageButton
+            android:id="@+id/stop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toTopOf="@+id/autoCompleteLanguage"
+            app:layout_constraintEnd_toStartOf="@+id/play"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:srcCompat="@drawable/baseline_stop_24" />
+
+        <ImageButton
+            android:id="@+id/pause"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:autofillHints="pause"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toTopOf="@+id/search_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/play"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:srcCompat="@drawable/baseline_pause_circle_24"
+            tools:ignore="ContentDescription" />
+
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="348dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="NotSibling" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="226dp"
+        android:layout_height="147dp"
+        android:layout_above="@id/seekBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="29dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:srcCompat="@drawable/baseline_music_note_24"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/languageInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
-        android:id="@+id/insertText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editTextText3"
+        android:layout_width="343dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:backgroundTint="#DDDDE1"
+        android:drawableLeft="@drawable/baseline_voice_chat_24"
+        android:drawablePadding="10dp"
         android:ems="10"
+        android:hint="text to voice"
         android:inputType="text"
-        android:text="Insert Text Here"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
+    <!-- res/layout/activity_main.xml -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
+        <!-- Your existing UI components -->
+
+        <!-- Include the loading screen -->
+        <include layout="@layout/loading_screen"
+            android:id="@+id/loadingScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+
+    <!-- res/layout/dropdown_item.xml -->
 </androidx.constraintlayout.widget.ConstraintLayout>
